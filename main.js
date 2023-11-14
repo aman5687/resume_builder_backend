@@ -2,6 +2,7 @@ require("dotenv").config();
 const express = require('express')
 const session = require("express-session");
 const mongoose = require("mongoose");
+const cors = require("cors");
 const app = express()
 const port = process.env.PORT || 4000
 
@@ -25,6 +26,8 @@ app.use(
         resave: false,
     })
 );
+
+app.use(cors());
 
 
 app.use(express.static('uploads'));
